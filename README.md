@@ -555,4 +555,5 @@ País: Brasil 🇧🇷
 
 "Um pequeno passo para o português, um salto gigante para a programação brasileira."
 
-```
+download do tupicython 
+esta aqui
