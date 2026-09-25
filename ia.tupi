@@ -1,0 +1,28 @@
+# IA.tupi — Integração com OpenRouter
+importe Servidor
+
+var API_KEY = ""
+var MODELO = "openrouter/free"
+
+funcao configurar(chave)
+    API_KEY = chave
+    retorna "Configurado"
+fim
+
+funcao escolher_modelo(nome)
+    MODELO = nome
+    retorna "Modelo: " .. nome
+fim
+
+funcao perguntar(texto)
+    var corpo = "{\"model\": \"" .. MODELO .. "\",\"messages\": [{\"role\": \"user\", \"content\": \"" .. texto .. "\"}]}"
+    
+    var headers = {
+        "Authorization": "Bearer " .. API_KEY,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://tupicython.github.io",
+        "X-Title": "TupiCython"
+    }
+    
+    retorna Servidor.post("https://openrouter.ai/api/v1/chat/completions", corpo, headers)
+fim
