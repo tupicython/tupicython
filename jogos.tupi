@@ -1,0 +1,75 @@
+# jogos.tupi — Funcoes de jogos
+# Autor: TupiCython
+# Versao: 1.0
+
+importe aleatoria
+
+funcao dado(lados)
+    se lados < 2 entao
+        lados = 6
+    fim
+    retorna aleatoria.numero(1, lados)
+fim
+
+funcao dados(quantidade, lados)
+    var resultados = []
+    var i = 0
+    enquanto i < quantidade faca
+        resultados = resultados .. [dado(lados)]
+        i = i + 1
+    fim
+    retorna resultados
+fim
+
+funcao cara_ou_coroa()
+    retorna aleatoria.cara_ou_coroa()
+fim
+
+funcao adivinhacao(max)
+    var numero_secreto = aleatoria.numero(1, max)
+    var tentativas = 0
+    var acertou = falso
+    
+    escreva("Pensei num numero de 1 a " .. texto(max))
+    
+    enquanto nao acertou faca
+        var palpite = numero(leia("Teu palpite:"))
+        tentativas = tentativas + 1
+        
+        se palpite == numero_secreto entao
+            escreva("Acertou em " .. texto(tentativas) .. " tentativas!")
+            acertou = verdadeiro
+        senao se palpite < numero_secreto entao
+            escreva("Muito baixo!")
+        senao
+            escreva("Muito alto!")
+        fim
+    fim
+    
+    retorna tentativas
+fim
+
+funcao pedra_papel_tesoura()
+    var opcoes = ["pedra", "papel", "tesoura"]
+    var jogador = aleatoria.escolher(opcoes)
+    var computador = aleatoria.escolher(opcoes)
+    
+    escreva("Voce: " .. jogador)
+    escreva("Computador: " .. computador)
+    
+    se jogador == computador entao
+        retorna "empate"
+    fim
+    
+    se jogador == "pedra" e computador == "tesoura" entao
+        retorna "voce ganhou"
+    fim
+    se jogador == "papel" e computador == "pedra" entao
+        retorna "voce ganhou"
+    fim
+    se jogador == "tesoura" e computador == "papel" entao
+        retorna "voce ganhou"
+    fim
+    
+    retorna "computador ganhou"
+fim
