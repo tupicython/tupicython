@@ -1,0 +1,30 @@
+# IA.tupi — Integração com APIs de IA
+importe Servidor
+
+var API_KEY = ""
+var API_URL = ""
+var MODELO = ""
+
+funcao configurar(provedor, chave)
+    se provedor == "deepseek" entao
+        API_URL = "https://api.deepseek.com/v1/chat/completions"
+        MODELO = "deepseek-chat"
+    senao se provedor == "groq" entao
+        API_URL = "https://api.groq.com/openai/v1/chat/completions"
+        MODELO = "llama-3.1-70b-versatile"
+    senao se provedor == "openai" entao
+        API_URL = "https://api.openai.com/v1/chat/completions"
+        MODELO = "gpt-4"
+    fim
+    API_KEY = chave
+    retorna "Configurado: " .. provedor
+fim
+
+funcao perguntar(texto)
+    var corpo = "{\"model\": \"" .. MODELO .. "\",\"messages\": [{\"role\": \"user\", \"content\": \"" .. texto .. "\"}]}"
+    var headers = {
+        "Authorization": "Bearer " .. API_KEY,
+        "Content-Type": "application/json"
+    }
+    retorna Servidor.post(API_URL, corpo, headers)
+fim
