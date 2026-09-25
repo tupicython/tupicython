@@ -1,30 +1,24 @@
-# IA.tupi — Integração com APIs de IA
+# IA.tupi — Integração com OpenRouter
 importe Servidor
 
-var API_KEY = ""
-var API_URL = ""
-var MODELO = ""
+var API_KEY = "vazio"
+var MODELO = "openrouter/free"
 
-funcao configurar(provedor, chave)
-    se provedor == "deepseek" entao
-        API_URL = "https://api.deepseek.com/v1/chat/completions"
-        MODELO = "deepseek-chat"
-    senao se provedor == "groq" entao
-        API_URL = "https://api.groq.com/openai/v1/chat/completions"
-        MODELO = "llama-3.1-70b-versatile"
-    senao se provedor == "openai" entao
-        API_URL = "https://api.openai.com/v1/chat/completions"
-        MODELO = "gpt-4"
-    fim
+funcao configurar(chave)
     API_KEY = chave
-    retorna "Configurado: " .. provedor
+    retorna "Configurado"
+fim
+
+funcao escolher_modelo(nome)
+    MODELO = nome
+    retorna "Modelo: " .. nome
 fim
 
 funcao perguntar(texto)
     var corpo = "{\"model\": \"" .. MODELO .. "\",\"messages\": [{\"role\": \"user\", \"content\": \"" .. texto .. "\"}]}"
-    var headers = {
-        "Authorization": "Bearer " .. API_KEY,
-        "Content-Type": "application/json"
-    }
-    retorna Servidor.post(API_URL, corpo, headers)
+    
+    # Headers simples (sem mapa — bug do parser)
+    var auth = "Bearer " .. API_KEY
+    
+    retorna Servidor.post_simples("https://openrouter.ai/api/v1/chat/completions", corpo, auth)
 fim
