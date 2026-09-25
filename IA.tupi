@@ -16,9 +16,52 @@ fim
 
 funcao perguntar(texto)
     var corpo = "{\"model\": \"" .. MODELO .. "\",\"messages\": [{\"role\": \"user\", \"content\": \"" .. texto .. "\"}]}"
-    
-    # Headers simples (sem mapa — bug do parser)
     var auth = "Bearer " .. API_KEY
-    
     retorna Servidor.post_simples("https://openrouter.ai/api/v1/chat/completions", corpo, auth)
+fim
+
+funcao extrair_content(resposta)
+    var chave = "\"content\":\""
+    var tam = tamanho(resposta)
+    var tam_chave = tamanho(chave)
+    var i = 0
+    var inicio = -1
+
+    # Procura a chave "content":
+    enquanto i < tam - tam_chave faca
+        var pedaco = ""
+        var j = 0
+        enquanto j < tam_chave faca
+            pedaco = pedaco .. resposta[i + j]
+            j = j + 1
+        fim
+        se pedaco == chave entao
+            inicio = i + tam_chave
+            quebra
+        fim
+        i = i + 1
+    fim
+
+    se inicio < 0 entao
+        retorna "❌ content nao encontrado"
+    fim
+
+    # Acha o fim (próxima aspa)
+    var fim = inicio
+    enquanto fim < tam faca
+        se resposta[fim] == "\"" entao
+            quebra
+        fim
+        fim = fim + 1
+    fim
+
+    # Extrai o texto
+    var resultado = ""
+    var k = inicio
+    enquanto k < fim faca
+        resultado = resultado .. resposta[k]
+        k = k + 1
+    fim
+
+    retorna resultado
 fim
