@@ -47,18 +47,18 @@ funcao extrair_content(resposta)
     fim
 
     # Acha o fim (próxima aspa)
-    var fim = inicio
-    enquanto fim < tam faca
-        se resposta[fim] == "\"" entao
+    var fimx = inicio
+    enquanto fimx < tam faca
+        se resposta[fimx] == "\"" entao
             quebra
         fim
-        fim = fim + 1
+        fimx = fimx + 1
     fim
 
     # Extrai o texto
     var resultado = ""
     var k = inicio
-    enquanto k < fim faca
+    enquanto k < fimx faca
         resultado = resultado .. resposta[k]
         k = k + 1
     fim
