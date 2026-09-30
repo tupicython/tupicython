@@ -1,0 +1,77 @@
+# datas.tupi — Funcoes de data e hora
+# Autor: TupiCython
+# Versao: 1.0
+
+var DIAS_SEMANA = [
+    "domingo", "segunda-feira", "terca-feira",
+    "quarta-feira", "quinta-feira", "sexta-feira", "sabado"
+]
+
+var MESES = [
+    "janeiro", "fevereiro", "marco", "abril",
+    "maio", "junho", "julho", "agosto",
+    "setembro", "outubro", "novembro", "dezembro"
+]
+
+funcao nome_dia(dia)
+    se dia < 0 ou dia > 6 entao
+        retorna "dia invalido"
+    fim
+    retorna DIAS_SEMANA[dia]
+fim
+
+funcao nome_mes(mes)
+    se mes < 1 ou mes > 12 entao
+        retorna "mes invalido"
+    fim
+    retorna MESES[mes - 1]
+fim
+
+funcao formatar(dia, mes, ano)
+    var d = texto(dia)
+    var m = texto(mes)
+    var a = texto(ano)
+    se dia < 10 entao
+        d = "0" .. d
+    fim
+    se mes < 10 entao
+        m = "0" .. m
+    fim
+    retorna d .. "/" .. m .. "/" .. a
+fim
+
+funcao bissexto(ano)
+    se ano % 4 != 0 entao
+        retorna falso
+    fim
+    se ano % 100 == 0 e ano % 400 != 0 entao
+        retorna falso
+    fim
+    retorna verdadeiro
+fim
+
+funcao dias_no_mes(mes, ano)
+    se mes == 2 entao
+        se bissexto(ano) entao
+            retorna 29
+        fim
+        retorna 28
+    fim
+    se mes == 4 ou mes == 6 ou mes == 9 ou mes == 11 entao
+        retorna 30
+    fim
+    retorna 31
+fim
+
+funcao validar(dia, mes, ano)
+    se mes < 1 ou mes > 12 entao
+        retorna falso
+    fim
+    se dia < 1 entao
+        retorna falso
+    fim
+    se dia > dias_no_mes(mes, ano) entao
+        retorna falso
+    fim
+    retorna verdadeiro
+fim

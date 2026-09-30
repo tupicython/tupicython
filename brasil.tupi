@@ -1,0 +1,186 @@
+# Brasil.tupi — Utilitarios brasileiros
+# Autor: TupiCython
+# Versao: 1.0
+
+var VERSAO = "1.0"
+var AUTOR = "TupiCython"
+
+# Formata um numero como moeda brasileira
+# Ex: 1234.5 -> "R$ 1234.5"
+funcao real(valor)
+    retorna "R$ " .. valor
+fim
+
+# Formata numero com separador de milhar no estilo BR
+# Ex: 1234567 -> "1.234.567"
+funcao milhar(n)
+    var s = texto(n)
+    var resultado = ""
+    var contador = 0
+    var i = tamanho(s) - 1
+
+    enquanto i >= 0 faca
+        var c = s[i]
+        se contador == 3 entao
+            resultado = "." .. resultado
+            contador = 0
+        fim
+        resultado = c .. resultado
+        contador = contador + 1
+        i = i - 1
+    fim
+
+    retorna resultado
+fim
+
+# Retorna o nome do estado a partir da sigla
+funcao estado(sigla)
+    se sigla == "SP" entao retorna "Sao Paulo" fim
+    se sigla == "RJ" entao retorna "Rio de Janeiro" fim
+    se sigla == "MG" entao retorna "Minas Gerais" fim
+    se sigla == "BA" entao retorna "Bahia" fim
+    se sigla == "RS" entao retorna "Rio Grande do Sul" fim
+    se sigla == "PR" entao retorna "Parana" fim
+    se sigla == "PE" entao retorna "Pernambuco" fim
+    se sigla == "CE" entao retorna "Ceara" fim
+    se sigla == "AM" entao retorna "Amazonas" fim
+    se sigla == "PA" entao retorna "Para" fim
+    retorna "Estado desconhecido"
+fim
+
+# Conta quantas vogais tem numa palavra
+funcao conta_vogais(palavra)
+    var total = 0
+    var i = 0
+    enquanto i < tamanho(palavra) faca
+        var c = palavra[i]
+        c = texto.minusculo(c)
+        se c == "a" ou c == "e" ou c == "i" ou c == "o" ou c == "u" entao
+            total = total + 1
+        fim
+        i = i + 1
+    fim
+    retorna total
+fim
+
+# Saudacao conforme hora do dia (0-23)
+funcao saudacao(hora)
+    se hora < 12 entao
+        retorna "Bom dia!"
+    senao se hora < 18 entao
+        retorna "Boa tarde!"
+    senao
+        retorna "Boa noite!"
+    fim
+fim
+
+# Inverte uma palavra
+funcao inverter(palavra)
+    var resultado = ""
+    var i = tamanho(palavra) - 1
+    enquanto i >= 0 faca
+        resultado = resultado .. palavra[i]
+        i = i - 1
+    fim
+    retorna resultado
+fim
+
+# Valida CPF (estrutural, sem consulta)
+funcao valida_cpf(cpf)
+    # Limpa pontos e tracos
+    var limpo = ""
+    var i = 0
+    enquanto i < tamanho(cpf) faca
+        var c = cpf[i]
+        se c >= "0" e c <= "9" entao
+            limpo = limpo .. c
+        fim
+        i = i + 1
+    fim
+
+    # Precisa ter 11 digitos
+    se tamanho(limpo) != 11 entao
+        retorna falso
+    fim
+
+    # Rejeita todos iguais (000, 111, 222...)
+    var todos_iguais = verdadeiro
+    i = 1
+    enquanto i < 11 faca
+        se limpo[i] != limpo[0] entao
+            todos_iguais = falso
+        fim
+        i = i + 1
+    fim
+    se todos_iguais entao
+        retorna falso
+    fim
+
+    # Calcula 1o digito verificador
+    var soma = 0
+    i = 0
+    enquanto i < 9 faca
+        soma = soma + numero(limpo[i]) * (10 - i)
+        i = i + 1
+    fim
+    var resto = soma % 11
+    var dv1 = 0
+    se resto >= 2 entao
+        dv1 = 11 - resto
+    fim
+
+    # Calcula 2o digito verificador
+    soma = 0
+    i = 0
+    enquanto i < 10 faca
+        soma = soma + numero(limpo[i]) * (11 - i)
+        i = i + 1
+    fim
+    resto = soma % 11
+    var dv2 = 0
+    se resto >= 2 entao
+        dv2 = 11 - resto
+    fim
+
+    # Compara
+    se numero(limpo[9]) != dv1 entao
+        retorna falso
+    fim
+    se numero(limpo[10]) != dv2 entao
+        retorna falso
+    fim
+
+    retorna verdadeiro
+fim
+
+# Formata CPF: "11144477735" -> "111.444.777-35"
+funcao formata_cpf(cpf)
+    var limpo = ""
+    var i = 0
+    enquanto i < tamanho(cpf) faca
+        var c = cpf[i]
+        se c >= "0" e c <= "9" entao
+            limpo = limpo .. c
+        fim
+        i = i + 1
+    fim
+
+    se tamanho(limpo) != 11 entao
+        retorna cpf
+    fim
+
+    var resultado = ""
+    i = 0
+    enquanto i < 11 faca
+        se i == 3 ou i == 6 entao
+            resultado = resultado .. "."
+        fim
+        se i == 9 entao
+            resultado = resultado .. "-"
+        fim
+        resultado = resultado .. limpo[i]
+        i = i + 1
+    fim
+
+    retorna resultado
+fim

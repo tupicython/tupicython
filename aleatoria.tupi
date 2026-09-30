@@ -1,0 +1,66 @@
+# aleatoria.tupi — Funcoes aleatorias
+# Autor: TupiCython
+# Versao: 1.0
+
+importe matematica
+
+var VERSAO = "1.0"
+
+# Numero inteiro aleatorio entre min e max
+funcao numero(min, max)
+    retorna matematica.aleatorio_entre(min, max)
+fim
+
+# Escolhe item aleatorio de uma lista
+funcao escolher(lista)
+    var idx = numero(0, tamanho(lista) - 1)
+    retorna lista[idx]
+fim
+
+# Cara ou coroa
+funcao cara_ou_coroa()
+    se numero(0, 1) == 0 entao
+        retorna "cara"
+    senao
+        retorna "coroa"
+    fim
+fim
+
+# Lanca um dado de N lados
+funcao dado(lados)
+    retorna numero(1, lados)
+fim
+
+# Gera senha aleatoria
+funcao senha(tamanho_senha)
+    var chars = "abcdefghijklmnopqrstuvwxyz0123456789"
+    var resultado = ""
+    var i = 0
+    enquanto i < tamanho_senha faca
+        var idx = numero(0, tamanho(chars) - 1)
+        resultado = resultado .. chars[idx]
+        i = i + 1
+    fim
+    retorna resultado
+fim
+
+# Embaralha uma lista (retorna copia)
+funcao embaralhar(lista)
+    var copia = []
+    var i = 0
+    enquanto i < tamanho(lista) faca
+        copia = copia .. [lista[i]]
+        i = i + 1
+    fim
+
+    var n = tamanho(copia)
+    enquanto n > 1 faca
+        var k = numero(0, n - 1)
+        var temp = copia[k]
+        copia[k] = copia[n - 1]
+        copia[n - 1] = temp
+        n = n - 1
+    fim
+
+    retorna copia
+fim

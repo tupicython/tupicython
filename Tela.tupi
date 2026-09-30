@@ -1,0 +1,54 @@
+# Tela.tupi — Interface gráfica nativa
+importe TelaMotor
+
+funcao cria(titulo)
+    retorna TelaMotor.janela()
+fim
+
+funcao texto(janela, texto)
+    retorna TelaMotor.adiciona_texto(texto)
+fim
+
+funcao entrada(janela, placeholder)
+    retorna TelaMotor.adiciona_entrada(placeholder)
+fim
+
+funcao botao(janela, texto, callback)
+    retorna TelaMotor.adiciona_botao(texto, callback)
+fim
+
+funcao imagem(janela, caminho)
+    retorna TelaMotor.adiciona_imagem(caminho)
+fim
+
+funcao checkbox(janela, texto)
+    retorna TelaMotor.adiciona_checkbox(texto)
+fim
+
+funcao slider(janela, minimo, maximo)
+    retorna TelaMotor.adiciona_slider(minimo, maximo)
+fim
+
+funcao espaco(janela, altura)
+    TelaMotor.adiciona_espaco(altura)
+fim
+
+funcao valor(view)
+    retorna TelaMotor.valor(view)
+fim
+
+funcao escrever(janela, texto)
+    TelaMotor.escreve(texto)
+fim
+
+funcao limpar(janela)
+    TelaMotor.limpar()
+fim
+
+funcao remover(janela, view)
+    TelaMotor.remove(view)
+fim
+
+funcao mostra(janela)
+    TelaMotor.mostra()
+fim
