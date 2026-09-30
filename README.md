@@ -531,7 +531,7 @@ Ideias:
 
 📜 Licença
 
-MIT — faça o que quiser.
+proibido mods pra mais infos olhe licensa
 
 ---
 
