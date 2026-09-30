@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🐍 TupiCython"
+            android:textColor="@color/verde_tupi"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="18"
+            android:gravity="top|start"
+            android:background="@drawable/fundo_editor"
+            android:textColor="@color/texto_principal"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:hint="Digite seu código Tupi aqui..."
+            android:textColorHint="@color/texto_secundario"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:scrollbars="vertical" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <Button
+                android:id="@+id/botao_executar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_marginEnd="4dp"
+                android:text="▶ EXECUTAR"
+                android:textColor="@color/branco"
+                android:textStyle="bold"
+                android:background="@drawable/botao_azul" />
+
+            <Button
+                android:id="@+id/botao_salvar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="💾"
+                android:textColor="@color/branco"
+                android:textStyle="bold"
+                android:background="@drawable/botao_cinza" />
+
+            <Button
+                android:id="@+id/botao_exemplos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="📚"
+                android:textColor="@color/branco"
+                android:textStyle="bold"
+                android:background="@drawable/botao_cinza" />
+
+            <Button
+                android:id="@+id/botao_carregar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="📂"
+                android:textColor="@color/branco"
+                android:textStyle="bold"
+                android:background="@drawable/botao_cinza" />
+
+            <Button
+                android:id="@+id/botao_limpar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🧹"
+                android:textColor="@color/branco"
+                android:textStyle="bold"
+                android:background="@drawable/botao_cinza" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

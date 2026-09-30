@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fundo">#1E1E1E</color>
+    <color name="fundo_editor">#252526</color>
+    <color name="fundo_saida">#181818</color>
+    <color name="fundo_botao_cinza">#3C3C3C</color>
+    <color name="azul_tupi">#0E639C</color>
+    <color name="azul_tupi_pressionado">#1177BB</color>
+    <color name="verde_tupi">#4EC9B0</color>
+    <color name="texto_principal">#D4D4D4</color>
+    <color name="texto_secundario">#808080</color>
+    <color name="branco">#FFFFFF</color>
+</resources>
