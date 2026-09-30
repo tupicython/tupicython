@@ -1,51 +1,28 @@
-# # IA.tupi — Integração com OpenRouter
+# IA.tupi — Integração com OpenRouter
 importe Servidor
 
-funcao perguntar(texto, api_key, modelo)
-    var corpo = "{\"model\": \"" .. modelo .. "\",\"messages\": [{\"role\": \"user\", \"content\": \"" .. texto .. "\"}]}"
-    var auth = "Bearer " .. api_key
-    retorna Servidor.post_simples("https://openrouter.ai/api/v1/chat/completions", corpo, auth)
+var API_KEY = ""
+var MODELO = "openrouter/free"
+
+funcao configurar(chave)
+    API_KEY = chave
+    retorna "Configurado"
 fim
 
-funcao extrair_content(resposta)
-    var chave = "\"content\":\""
-    var tam = tamanho(resposta)
-    var tam_chave = tamanho(chave)
-    var i = 0
-    var inicio = -1
+funcao escolher_modelo(nome)
+    MODELO = nome
+    retorna "Modelo: " .. nome
+fim
 
-    enquanto i < tam - tam_chave faca
-        var pedaco = ""
-        var j = 0
-        enquanto j < tam_chave faca
-            pedaco = pedaco .. resposta[i + j]
-            j = j + 1
-        fim
-        se pedaco == chave entao
-            inicio = i + tam_chave
-            quebra
-        fim
-        i = i + 1
-    fim
-
-    se inicio < 0 entao
-        retorna "❌ content nao encontrado"
-    fim
-
-    var fimx = inicio
-    enquanto fimx < tam faca
-        se resposta[fimx] == "\"" entao
-            quebra
-        fim
-        fimx = fimx + 1
-    fim
-
-    var resultado = ""
-    var k = inicio
-    enquanto k < fimx faca
-        resultado = resultado .. resposta[k]
-        k = k + 1
-    fim
-
-    retorna resultado
+funcao perguntar(texto)
+    var corpo = "{\"model\": \"" .. MODELO .. "\",\"messages\": [{\"role\": \"user\", \"content\": \"" .. texto .. "\"}]}"
+    
+    var headers = {
+        "Authorization": "Bearer " .. API_KEY,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://tupicython.github.io",
+        "X-Title": "TupiCython"
+    }
+    
+    retorna Servidor.post("https://openrouter.ai/api/v1/chat/completions", corpo, headers)
 fim
