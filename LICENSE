@@ -1,21 +1,148 @@
-MIT License
+LICENÇA TUPICYTHON
+Versão 1.0, Setembro de 2026
 
-Copyright (c) 2026 tupicython
+Copyright (c) 2026 Arthur (TupiCython)
+Todos os direitos reservados.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+===================================================================
+RESUMO
+===================================================================
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Esta licença permite que você USE e ESTUDE o TupiCython livremente.
+Porém, PROÍBE modificações não autorizadas, forks e redistribuições
+sem permissão expressa do autor.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Se você quer contribuir com o projeto, ótimo! Mas contribuições
+devem ser feitas ATRAVÉS do repositório oficial no GitHub, e não
+através de forks ou versões paralelas.
+
+===================================================================
+1. PERMISSÕES
+===================================================================
+
+Você PODE:
+
+a) Usar o TupiCython para fins pessoais, educacionais ou comerciais.
+
+b) Estudar o código-fonte para aprender como funciona.
+
+c) Criar programas e aplicações USANDO a linguagem TupiCython,
+   sem restrições. O que você criar com a linguagem é SEU.
+
+d) Distribuir o TupiCython na forma ORIGINAL, sem modificações,
+   mantendo esta licença e os créditos ao autor.
+
+e) Contribuir com o projeto através do repositório oficial,
+   seguindo as diretrizes de contribuição do autor.
+
+===================================================================
+2. RESTRIÇÕES
+===================================================================
+
+Você NÃO PODE:
+
+a) Modificar o código-fonte do TupiCython e distribuir a versão
+   modificada, sem permissão expressa por escrito do autor.
+
+b) Criar forks do repositório oficial para distribuir versões
+   paralelas ou alternativas.
+
+c) Redistribuir o TupiCython com modificações, mesmo que pequenas,
+   sem autorização do autor.
+
+d) Usar o nome "TupiCython", "TupiCython Language", "Tupi" ou
+   qualquer variação do nome para identificar versões modificadas
+   ou forks não autorizados.
+
+e) Remover ou alterar os créditos ao autor original.
+
+f) Vender o TupiCython como produto próprio sem autorização.
+
+===================================================================
+3. CONTRIBUIÇÕES
+===================================================================
+
+Contribuições ao TupiCython são bem-vindas, mas devem ser feitas
+ATRAVÉS do repositório oficial:
+
+    https://github.com/tupicython/tupicython
+
+Ao enviar uma contribuição (pull request, issue, sugestão),
+você concorda que:
+
+a) A contribuição passa a fazer parte do projeto oficial.
+
+b) O autor tem direito de usar, modificar e distribuir a
+   contribuição como parte do TupiCython.
+
+c) Você mantém os direitos autorais da sua contribuição, mas
+   concede ao autor uma licença perpétua e irrevogável para
+   usá-la no projeto.
+
+===================================================================
+4. APLICAÇÕES CRIADAS COM TUPICYTHON
+===================================================================
+
+Programas, aplicações, jogos e qualquer outra coisa CRIADA
+USANDO a linguagem TupiCython são de PROPRIEDADE EXCLUSIVA de
+quem as criou.
+
+Esta licença NÃO se aplica ao que você cria com o TupiCython.
+Você é livre para licenciar seus próprios programas como quiser,
+inclusive comercialmente.
+
+===================================================================
+5. MÓDULOS E BIBLIOTECAS
+===================================================================
+
+Módulos e bibliotecas criados PARA o TupiCython (como IA.tupi,
+Tela.tupi, etc.) seguem a mesma licença do projeto principal,
+a menos que especificado em contrário pelo autor do módulo.
+
+===================================================================
+6. ISENÇÃO DE RESPONSABILIDADE
+===================================================================
+
+O TUPICYTHON É FORNECIDO "COMO ESTÁ", SEM GARANTIA DE QUALQUER
+TIPO, EXPRESSA OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO A,
+GARANTIAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO
+E NÃO VIOLAÇÃO.
+
+EM NENHUM CASO O AUTOR SERÁ RESPONSÁVEL POR QUALQUER RECLAMAÇÃO,
+DANO OU OUTRA RESPONSABILIDADE, SEJA EM AÇÃO DE CONTRATO, ATO
+ILÍCITO OU OUTRA FORMA, DECORRENTE DE, FORA DE OU EM CONEXÃO
+COM O SOFTWARE OU O USO OU OUTRAS NEGOCIAÇÕES NO SOFTWARE.
+
+===================================================================
+7. RESCISÃO
+===================================================================
+
+Esta licença é automaticamente rescindida se você violar
+qualquer uma das restrições acima. Nesse caso, você deve
+cessar imediatamente o uso do TupiCython e destruir todas
+as cópias.
+
+===================================================================
+8. PERMISSÕES ESPECIAIS
+===================================================================
+
+Para pedir permissão para modificar, criar fork, redistribuir
+com alterações, ou usar o nome "TupiCython", entre em contato
+com o autor através do GitHub:
+
+    https://github.com/tupicython
+
+O autor pode conceder permissões caso a caso, a seu critério.
+
+===================================================================
+9. LEI APLICÁVEL
+===================================================================
+
+Esta licença é regida pelas leis da República Federativa do
+Brasil.
+
+===================================================================
+
+Para mais informações: https://github.com/tupicython/tupicython
+
+===================================================================
