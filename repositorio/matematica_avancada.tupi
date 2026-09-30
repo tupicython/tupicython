@@ -1,0 +1,117 @@
+# matematica_avancada.tupi — Funcoes matematicas extras
+# Autor: TupiCython
+# Versao: 1.0
+
+importe matematica
+
+funcao fatorial(n)
+    se n < 0 entao
+        retorna 0
+    fim
+    se n <= 1 entao
+        retorna 1
+    fim
+    var resultado = 1
+    var i = 2
+    enquanto i <= n faca
+        resultado = resultado * i
+        i = i + 1
+    fim
+    retorna resultado
+fim
+
+funcao fibonacci(n)
+    se n <= 0 entao
+        retorna 0
+    fim
+    se n == 1 entao
+        retorna 1
+    fim
+    var a = 0
+    var b = 1
+    var i = 2
+    enquanto i <= n faca
+        var temp = a + b
+        a = b
+        b = temp
+        i = i + 1
+    fim
+    retorna b
+fim
+
+funcao eh_primo(n)
+    se n < 2 entao
+        retorna falso
+    fim
+    se n == 2 entao
+        retorna verdadeiro
+    fim
+    se n % 2 == 0 entao
+        retorna falso
+    fim
+    var i = 3
+    enquanto i * i <= n faca
+        se n % i == 0 entao
+            retorna falso
+        fim
+        i = i + 2
+    fim
+    retorna verdadeiro
+fim
+
+funcao mdc(a, b)
+    enquanto b != 0 faca
+        var temp = b
+        b = a % b
+        a = temp
+    fim
+    retorna a
+fim
+
+funcao mmc(a, b)
+    retorna (a * b) / mdc(a, b)
+fim
+
+funcao media(lista)
+    var soma = 0
+    var i = 0
+    enquanto i < tamanho(lista) faca
+        soma = soma + lista[i]
+        i = i + 1
+    fim
+    retorna soma / tamanho(lista)
+fim
+
+funcao soma_lista(lista)
+    var soma = 0
+    var i = 0
+    enquanto i < tamanho(lista) faca
+        soma = soma + lista[i]
+        i = i + 1
+    fim
+    retorna soma
+fim
+
+funcao maximo_lista(lista)
+    var max = lista[0]
+    var i = 1
+    enquanto i < tamanho(lista) faca
+        se lista[i] > max entao
+            max = lista[i]
+        fim
+        i = i + 1
+    fim
+    retorna max
+fim
+
+funcao minimo_lista(lista)
+    var min = lista[0]
+    var i = 1
+    enquanto i < tamanho(lista) faca
+        se lista[i] < min entao
+            min = lista[i]
+        fim
+        i = i + 1
+    fim
+    retorna min
+fim
